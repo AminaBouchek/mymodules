@@ -8,11 +8,6 @@ class cours(models.Model):
     _description = 'Openacademy courses'
 
     name = fields.Char(required=True, index=True, string ="Nom")
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
-
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    responsible_id = fields.Many2one('res.users', string="Responsible", ondelete="cascade")
+    session_id = fields.One2many("openacademy.session", "course_id", string="Sessions", ondelete="cascade")

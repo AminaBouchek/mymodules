@@ -9,3 +9,6 @@ class session(models.Model):
     start_date = fields.Date(string='Start date')
     duration = fields.Float(digits=(6, 2))
     seats = fields.Integer(string="Number of seats")
+    course_id = fields.Many2one('openacademy.cours', string="Course", ondelete='cascade', index=True)
+    attendees_ids = fields.Many2many("res.partner", string="Attendees")
+
