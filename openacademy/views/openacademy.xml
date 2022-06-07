@@ -30,6 +30,7 @@
                 <field name="description"/>
                 <field name="responsible_id"/>
                 <field name="responsible_id"/>
+                <field name="session_id" widget="many2many_tags" />
             </tree>
         </field>
     </record>
@@ -48,6 +49,7 @@
                     <notebook>
                         <page string="Description">
                             <field name="description"/>
+
                         </page>
                         <page string="Sessions">
                             <field name="session_id">
@@ -74,6 +76,8 @@
                 <field name="seats"/>
                 <field name="start_date"/>
                 <field name="duration"/>
+                <field name="percentage" widget="progressbar"/>
+                <field name="attendees_ids" widget="many2many_tags_avatar"/>
             </tree>
         </field>
     </record>
@@ -94,6 +98,7 @@
                         <field name="start_date"/>
                         <field name="duration"/>
                         <field name="seats"/>
+                        <field name="percentage" widget="progressbar"/>
                     </group>
                     <label for="attendees_ids"/>
                     <field name="attendees_ids"/>
