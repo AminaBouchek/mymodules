@@ -1,0 +1,56 @@
+<odoo>
+    <!-- Create an action for menu 'cours'!-->
+    <record model="ir.actions.act_window" id="course_list_action">
+        <field name="name">Courses</field>
+        <field name="res_model">openacademy.cours</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">create the first course</p>
+        </field>
+    </record>
+
+    <!-- Create an action for menu 'sessions'!-->
+    <record model="ir.actions.act_window" id="session_list_action">
+        <field name="name">Sessions</field>
+        <field name="res_model">openacademy.session</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first session</p>
+        </field>
+    </record>
+
+
+    <!-- Create a view for model 'cours'!-->
+    <record model="ir.ui.view" id="tree_view_course">
+        <field name="name">view_course_tree</field>
+        <field name="model">openacademy.cours</field>
+        <field name="arch" type="xml">
+            <tree string="Course list">
+                <field name="name" string="Nom"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Create a view for model 'sessions'!-->
+    <record model="ir.ui.view" id="tree_view_session">
+        <field name="name">view_session_tree</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <tree string="Session list">
+                <field name="name" string="Nom"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Create a MENU !-->
+    <menuitem id="main_openacademy_menu" name="Open Academy"/>
+    <menuitem id="openacademy" parent="main_openacademy_menu" name="Open Academy"/>
+    <menuitem id="openacademy_courses" parent="openacademy" name="Courses"
+              action="course_list_action"/>
+    <menuitem id="openacademy_sessions" parent="openacademy" name="Sessions"
+              action="session_list_action"/>
+</odoo>
