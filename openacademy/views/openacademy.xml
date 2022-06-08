@@ -13,10 +13,17 @@
     <record model="ir.actions.act_window" id="session_list_action">
         <field name="name">Sessions</field>
         <field name="res_model">openacademy.session</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar,graph,pivot</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create the first session</p>
         </field>
+    </record>
+
+    <!-- Create an action for calendar-->
+    <record model="ir.actions.act_window" id="calendar_action">
+        <field name="name">Sessions Calendar</field>
+        <field name="res_model">openacademy.session</field>
+        <field name="view_mode">calendar</field>
     </record>
 
 
@@ -30,7 +37,7 @@
                 <field name="description"/>
                 <field name="responsible_id"/>
                 <field name="responsible_id"/>
-                <field name="session_id" widget="many2many_tags" />
+                <field name="session_id" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
@@ -70,7 +77,7 @@
         <field name="name">view_session_tree</field>
         <field name="model">openacademy.session</field>
         <field name="arch" type="xml">
-            <tree string="Session list">
+            <tree string="Session list" decoration-info="duration&lt;10" decoration-danger="duration&gt;15">
                 <field name="name" string="Nom"/>
                 <field name="course_id"/>
                 <field name="seats"/>
@@ -82,6 +89,27 @@
         </field>
     </record>
 
+    <!-- Create a calendar view for model 'sessions'!-->
+    <record model="ir.ui.view" id="calendar_view_session">
+        <field name="name">view_session_calendar</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <calendar string="Session calendar" date_start="start_date" date_stop="end_date" color="course_id">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+    <!-- Create a graph view for model 'sessions'!-->
+    <record model="ir.ui.view" id="graph_view_session">
+        <field name="name">view_session_graph</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <graph string="Participation par course">
+                <field name="course_id"/>
+                <field name="attendees_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
 
     <!-- Create a form view for model 'sessions'!-->
     <record model="ir.ui.view" id="form_view_session">
@@ -97,6 +125,7 @@
                     <group string="Schedule">
                         <field name="start_date"/>
                         <field name="duration"/>
+                        <field name="end_date"/>
                         <field name="seats"/>
                         <field name="percentage" widget="progressbar"/>
                     </group>
