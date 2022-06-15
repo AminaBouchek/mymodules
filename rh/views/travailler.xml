@@ -1,5 +1,5 @@
 <odoo>
-    <!-- Create an action for menu 'projet'!-->
+    <!-- Create an action for menu 'works'!-->
     <record model="ir.actions.act_window" id="travail_list_action">
         <field name="name">Travaux</field>
         <field name="res_model">rh.travail</field>
@@ -10,18 +10,19 @@
     </record>
 
 
-    <!-- Create a tree view for model 'projet'!-->
+    <!-- Create a tree view for model 'works'!-->
     <record model="ir.ui.view" id="tree_view_travail">
         <field name="name">view_travail_tree</field>
         <field name="model">rh.travail</field>
         <field name="arch" type="xml">
             <tree string="Work list">
-                <field name="code_proj" />
+                <field name="code_proj"/>
                 <field name="num_employee" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
 
+    <!-- Create a form view for model 'work'!-->
     <record model="ir.ui.view" id="form_view_travail">
         <field name="name">view_travail_tree</field>
         <field name="model">rh.travail</field>
@@ -29,7 +30,7 @@
             <form string="works list">
                 <sheet>
                     <group>
-                        <field name="code_proj" />
+                        <field name="code_proj"/>
                     </group>
                     <group>
                         <field name="num_employee"/>

@@ -23,6 +23,26 @@
         </field>
     </record>
 
+    <!-- Create a tree view for model 'employee'!-->
+        <record model="ir.ui.view" id="form_view_employee">
+        <field name="name">view_employee_tree</field>
+        <field name="model">rh.employee</field>
+        <field name="arch" type="xml">
+            <form string="Employees list" >
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="fonction_emp"/>
+                        <field name="salaire_emp"/>
+                        <field name="num_dep"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <menuitem id="main_rh_menu" name="RH"/>
     <menuitem id="rh.employee" parent="main_rh_menu" name="Employees"
               action="employee_list_action"/>
