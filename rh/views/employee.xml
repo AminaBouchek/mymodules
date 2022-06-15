@@ -1,0 +1,29 @@
+<odoo>
+     <!-- Create an action for menu 'employee'!-->
+    <record model="ir.actions.act_window" id="employee_list_action">
+        <field name="name">Employees</field>
+        <field name="res_model">rh.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No body is here</p>
+        </field>
+    </record>
+
+        <!-- Create a tree view for model 'employee'!-->
+    <record model="ir.ui.view" id="tree_view_employee">
+        <field name="name">view_employee_tree</field>
+        <field name="model">rh.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Employee list" editable ="top">
+                <field name="name"/>
+                <field name="fonction_emp"/>
+                <field name="salaire_emp"/>
+                <field name="num_dep" />
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="main_rh_menu" name="RH"/>
+    <menuitem id="rh.employee" parent="main_rh_menu" name="Employees"
+              action="employee_list_action"/>
+</odoo>

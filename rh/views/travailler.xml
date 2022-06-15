@@ -1,0 +1,46 @@
+<odoo>
+    <!-- Create an action for menu 'projet'!-->
+    <record model="ir.actions.act_window" id="travail_list_action">
+        <field name="name">Travaux</field>
+        <field name="res_model">rh.travail</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing is here</p>
+        </field>
+    </record>
+
+
+    <!-- Create a tree view for model 'projet'!-->
+    <record model="ir.ui.view" id="tree_view_travail">
+        <field name="name">view_travail_tree</field>
+        <field name="model">rh.travail</field>
+        <field name="arch" type="xml">
+            <tree string="Work list">
+                <field name="code_proj" />
+                <field name="num_employee" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="form_view_travail">
+        <field name="name">view_travail_tree</field>
+        <field name="model">rh.travail</field>
+        <field name="arch" type="xml">
+            <form string="works list">
+                <sheet>
+                    <group>
+                        <field name="code_proj" />
+                    </group>
+                    <group>
+                        <field name="num_employee"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <menuitem id="main_rh_menu" name="RH"/>
+    <menuitem id="rh.travail" parent="main_rh_menu" name="Works"
+              action="travail_list_action"/>
+</odoo>

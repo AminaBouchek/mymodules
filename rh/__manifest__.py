@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "OpenAcademy",
+    'name': "RH",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -10,7 +10,7 @@
         Long description of module's purpose
     """,
 
-    'author': "Amina Bouchek",
+    'author': "Amina Bouchekhchoukh",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -27,8 +27,11 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/openacademy.xml',
-        'views/partner.xml'
+        'views/employee.xml',
+        'views/projet.xml',
+        'views/travailler.xml',
+        'views/departement.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

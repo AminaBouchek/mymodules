@@ -1,0 +1,28 @@
+<odoo>
+     <!-- Create an action for menu 'projet'!-->
+    <record model="ir.actions.act_window" id="projet_list_action">
+        <field name="name">Projects</field>
+        <field name="res_model">rh.projet</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing is here</p>
+        </field>
+    </record>
+
+
+        <!-- Create a tree view for model 'projet'!-->
+    <record model="ir.ui.view" id="tree_view_projet">
+        <field name="name">view_project_tree</field>
+        <field name="model">rh.projet</field>
+        <field name="arch" type="xml">
+            <tree string="Projects list">
+                <field name="code_proj"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="main_rh_menu" name="RH"/>
+    <menuitem id="rh.projet" parent="main_rh_menu" name="Projects"
+              action="projet_list_action"/>
+</odoo>

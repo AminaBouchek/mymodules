@@ -1,0 +1,28 @@
+
+<odoo>
+     <!-- Create an action for menu 'depart'!-->
+    <record model="ir.actions.act_window" id="departement_list_action">
+        <field name="name">Departements</field>
+        <field name="res_model">rh.departement</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing here</p>
+        </field>
+    </record>
+
+
+        <!-- Create a tree view for model 'employee'!-->
+    <record model="ir.ui.view" id="tree_view_departement">
+        <field name="name">view_departement_tree</field>
+        <field name="model">rh.departement</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="name"/>
+                <field name="site_dep"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="rh.departement" parent="main_rh_menu" name="Departements"
+              action="departement_list_action"/>
+</odoo>

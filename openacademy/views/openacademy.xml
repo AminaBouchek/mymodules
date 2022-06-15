@@ -136,7 +136,7 @@
         </field>
     </record>
 
-    <!-- Create a MENU !-->
+    <!-- Create a MENU for module openacademy!-->
     <menuitem id="main_openacademy_menu" name="Open Academy"/>
     <menuitem id="openacademy" parent="main_openacademy_menu" name="Open Academy"/>
     <menuitem id="openacademy_courses" parent="openacademy" name="Courses"
